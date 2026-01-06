@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,9 +9,9 @@
         :root {
             --bg-color: #141414;
             --card-bg: #1f1f1f;
-            --accent: #e50914; /* Rojo Netflix */
-            --green: #46d369;  /* Verde Precio */
-            --blue: #007bff;   /* Azul Botón */
+            --accent: #e50914;
+            --green: #46d369;
+            --blue: #007bff;
             --text: #ffffff;
             --gold: #ffd700;
         }
@@ -26,7 +24,6 @@
             padding-bottom: 120px;
         }
 
-        /* Banner */
         .info-banner {
             background: rgba(70, 211, 105, 0.15);
             border-bottom: 1px solid var(--green);
@@ -46,7 +43,6 @@
         h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
         .subtitle { color: #aaa; font-size: 1rem; margin-top: 5px; }
 
-        /* Estructura */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -56,7 +52,6 @@
             gap: 20px;
         }
 
-        /* Títulos de Sección */
         .section-header {
             text-align: center;
             margin-top: 40px;
@@ -78,18 +73,15 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
         }
 
         .card:hover { transform: translateY(-5px); border-color: #555; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-
-        /* Estilos específicos para combos con Netflix */
         .netflix-combo { border: 1px solid var(--accent); }
 
         .card img {
             width: 70px;
             height: 70px;
-            object-fit: contain; /* Asegura que el logo se vea completo */
+            object-fit: contain;
             margin: 0 auto 10px auto;
         }
 
@@ -104,7 +96,6 @@
 
         .duracion { font-size: 0.8rem; color: #888; margin-bottom: 10px; }
 
-        /* Botones */
         .btn-add {
             background: transparent;
             border: 1px solid var(--green);
@@ -184,12 +175,38 @@
 
         .close-btn { position: absolute; right: 15px; top: 10px; font-size: 1.5rem; cursor: pointer; }
 
+        /* Estilos de Selección de Pago */
+        .payment-section {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid #333;
+        }
+        
+        .payment-title {
+            font-size: 0.9rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .radio-option input { margin-right: 10px; accent-color: var(--green); transform: scale(1.2); }
+
     </style>
 </head>
 <body>
 
     <div class="info-banner">
-        🔒 Garantía Total | Paga 50% al pedir y 50% al recibir
+        🔒 Garantía Total | Tu eliges como pagar
     </div>
 
     <header>
@@ -204,7 +221,7 @@
     
     <section class="container">
         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png">
             <h3>YouTube Premium</h3>
             <div class="price-tag">$10.000</div>
             <div class="duracion">30 Días • Sin Anuncios</div>
@@ -212,7 +229,7 @@
         </div>
 
         <div class="card" style="border-color: var(--accent);">
-            <img src="https://images.icon-icons.com/2699/PNG/512/netflix_logo_icon_170919.png" alt="Netflix">
+            <img src="https://images.icon-icons.com/2699/PNG/512/netflix_logo_icon_170919.png">
             <h3>Netflix</h3>
             <div class="price-tag">$15.000</div>
             <div class="duracion">30 Días • 4K UHD</div>
@@ -220,7 +237,7 @@
         </div>
 
         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney%2B_logo.svg/1200px-Disney%2B_logo.svg.png" alt="Disney+">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney%2B_logo.svg/1200px-Disney%2B_logo.svg.png">
             <h3>Disney+</h3>
             <div class="price-tag">$7.000</div>
             <div class="duracion">30 Días • Premium</div>
@@ -228,7 +245,7 @@
         </div>
 
         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Max_logo.svg/2560px-Max_logo.svg.png" alt="HBO Max">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Max_logo.svg/2560px-Max_logo.svg.png">
             <h3>HBO Max</h3>
             <div class="price-tag">$7.000</div>
             <div class="duracion">30 Días • Series Top</div>
@@ -236,7 +253,7 @@
         </div>
 
         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Amazon_Prime_Video_logo.svg/1200px-Amazon_Prime_Video_logo.svg.png" alt="Prime Video">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Amazon_Prime_Video_logo.svg/1200px-Amazon_Prime_Video_logo.svg.png">
             <h3>Prime Video</h3>
             <div class="price-tag">$7.000</div>
             <div class="duracion">30 Días • Películas</div>
@@ -244,7 +261,7 @@
         </div>
 
         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Paramount_Plus.svg/1200px-Paramount_Plus.svg.png" alt="Paramount+">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Paramount_Plus.svg/1200px-Paramount_Plus.svg.png">
             <h3>Paramount+</h3>
             <div class="price-tag">$7.000</div>
             <div class="duracion">30 Días • Exclusivo</div>
@@ -252,7 +269,7 @@
         </div>
 
         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/ViX_logo_2022.svg/1200px-ViX_logo_2022.svg.png" alt="Vix+">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/ViX_logo_2022.svg/1200px-ViX_logo_2022.svg.png">
             <h3>Vix+</h3>
             <div class="price-tag">$7.000</div>
             <div class="duracion">30 Días • Deportes</div>
@@ -260,7 +277,7 @@
         </div>
 
         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Crunchyroll_Logo.png/600px-Crunchyroll_Logo.png" alt="Crunchyroll">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Crunchyroll_Logo.png/600px-Crunchyroll_Logo.png">
             <h3>Crunchyroll</h3>
             <div class="price-tag">$7.000</div>
             <div class="duracion">30 Días • Anime</div>
@@ -270,7 +287,7 @@
 
     <div class="section-header">
         <h2>🔥 Combos Populares</h2>
-        <p>Elige tu pack y cómpralo al instante</p>
+        <p>Elige tu pack, selecciona método de pago y compra</p>
     </div>
 
     <section class="container">
@@ -279,83 +296,83 @@
             <span class="combo-badge">Ahorro</span>
             <h3>Prime + Max</h3>
             <div class="price-tag">$13.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Prime + Max', 13000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo: Prime + Max', 13000)">🛒 Comprar</button>
         </div>
         <div class="card">
             <span class="combo-badge">Ahorro</span>
             <h3>Prime + Disney+</h3>
             <div class="price-tag">$13.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Prime + Disney', 13000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo: Prime + Disney', 13000)">🛒 Comprar</button>
         </div>
         <div class="card">
             <span class="combo-badge">Ahorro</span>
             <h3>Max + Disney+</h3>
             <div class="price-tag">$13.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Max + Disney', 13000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo: Max + Disney', 13000)">🛒 Comprar</button>
         </div>
 
         <div class="card" style="border-color: var(--gold);">
             <span class="combo-badge" style="background:var(--gold); color:#000;">Recomendado</span>
             <h3>Prime + Max + Disney</h3>
             <div class="price-tag">$17.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Prime + Max + Disney', 17000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo: Prime + Max + Disney', 17000)">🛒 Comprar</button>
         </div>
 
         <div class="card netflix-combo">
             <span class="combo-badge" style="background:var(--accent);">Con Netflix</span>
             <h3>Netflix + Prime</h3>
             <div class="price-tag">$18.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Netflix + Prime', 18000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo: Netflix + Prime', 18000)">🛒 Comprar</button>
         </div>
         <div class="card netflix-combo">
             <span class="combo-badge" style="background:var(--accent);">Con Netflix</span>
             <h3>Netflix + Max</h3>
             <div class="price-tag">$18.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Netflix + Max', 18000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo: Netflix + Max', 18000)">🛒 Comprar</button>
         </div>
         <div class="card netflix-combo">
             <span class="combo-badge" style="background:var(--accent);">Con Netflix</span>
             <h3>Netflix + Disney+</h3>
             <div class="price-tag">$18.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Netflix + Disney', 18000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo: Netflix + Disney', 18000)">🛒 Comprar</button>
         </div>
 
         <div class="card" style="border-color: var(--gold);">
             <span class="combo-badge" style="background:var(--gold); color:#000;">Pack x4</span>
             <h3>Prime+Max+Dis+Vix</h3>
             <div class="price-tag">$20.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo 4 Apps: Prime+Max+Dis+Vix', 20000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo 4 Apps: Prime+Max+Dis+Vix', 20000)">🛒 Comprar</button>
         </div>
 
         <div class="card netflix-combo">
             <span class="combo-badge" style="background:var(--accent);">Triple Net</span>
             <h3>Net + Prime + Max</h3>
             <div class="price-tag">$22.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo Triple: Net + Prime + Max', 22000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo Triple: Net + Prime + Max', 22000)">🛒 Comprar</button>
         </div>
         <div class="card netflix-combo">
             <span class="combo-badge" style="background:var(--accent);">Triple Net</span>
             <h3>Net + Max + Disney</h3>
             <div class="price-tag">$22.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo Triple: Net + Max + Disney', 22000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo Triple: Net + Max + Disney', 22000)">🛒 Comprar</button>
         </div>
         <div class="card netflix-combo">
             <span class="combo-badge" style="background:var(--accent);">Triple Net</span>
             <h3>Net + Prime + Disney</h3>
             <div class="price-tag">$22.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo Triple: Net + Prime + Disney', 22000)">🛒 Comprar</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo Triple: Net + Prime + Disney', 22000)">🛒 Comprar</button>
         </div>
 
         <div class="card netflix-combo" style="grid-column: 1 / -1; background: linear-gradient(145deg, #300000, #1f1f1f);">
             <span class="combo-badge" style="background:#fff; color:#000;">👑 EL SUPREMO</span>
             <h3>Netflix + Prime + Max + Disney+</h3>
             <div class="price-tag">$26.000</div>
-            <button class="btn-buy-now" onclick="comprarDirecto('Combo SUPREMO: Net+Prime+Max+Dis', 26000)">🛒 Comprar Ahora</button>
+            <button class="btn-buy-now" onclick="abrirModalCompraDirecta('Combo SUPREMO: Net+Prime+Max+Dis', 26000)">🛒 Comprar Ahora</button>
         </div>
 
     </section>
 
-    <div class="cart-bar" onclick="abrirCarrito()">
+    <div class="cart-bar" onclick="abrirModalCarrito()">
         <div>
             <span style="font-size:0.7rem; color:#aaa;">Armado Personalizado:</span>
             <div id="totalBarra" style="font-weight:bold; color:var(--green);">$0</div>
@@ -365,57 +382,61 @@
         </div>
     </div>
 
-    <div class="cart-modal" id="modalCarrito">
+    <div class="cart-modal" id="modalCheckout">
         <div class="cart-content">
-            <span class="close-btn" onclick="cerrarCarrito()">&times;</span>
-            <h3 style="text-align:center;">Tu Pedido Personalizado</h3>
-            <div id="listaItems" style="margin:15px 0; max-height:200px; overflow-y:auto; border-bottom:1px solid #333;"></div>
+            <span class="close-btn" onclick="cerrarModal()">&times;</span>
+            
+            <h3 style="text-align:center;" id="modalTitle">Confirmar Pedido</h3>
+            
+            <div id="modalBody" style="margin:15px 0; max-height:150px; overflow-y:auto; border-bottom:1px solid #333; padding-bottom:10px;"></div>
             
             <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:1.2rem; margin-bottom:15px;">
-                <span>Total:</span>
-                <span id="totalModal" style="color:var(--green);">$0</span>
+                <span>Total a Pagar:</span>
+                <span id="modalTotal" style="color:var(--green);">$0</span>
             </div>
             
-            <p style="text-align:center; font-size:0.8rem; color:#aaa;">*El sistema ha calculado el mejor precio para ti.</p>
+            <div class="payment-section">
+                <div class="payment-title">💳 ¿Cómo deseas pagar?</div>
+                <label class="radio-option">
+                    <input type="radio" name="metodoPago" value="50/50" checked>
+                    <span><strong>50% / 50%</strong> (Paga la mitad y el resto al recibir)</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="metodoPago" value="Completo">
+                    <span><strong>Pago Completo</strong> (Pagar todo de una vez)</span>
+                </label>
+            </div>
 
-            <button class="btn-buy-now" onclick="enviarPedidoCarrito()" style="background:#25D366;">📲 Enviar por WhatsApp</button>
+            <button class="btn-buy-now" onclick="finalizarCompra()" style="background:#25D366;">📲 Enviar Pedido por WhatsApp</button>
         </div>
     </div>
 
     <script>
         const telefono = "573022346315";
         let carrito = [];
+        
+        // Variables para controlar si es compra directa o de carrito
+        let modoCompra = 'carrito'; // 'carrito' o 'directo'
+        let itemDirecto = null;
+        let precioDirecto = 0;
 
-        // --- 1. COMPRA DIRECTA DE COMBOS ---
-        function comprarDirecto(nombreCombo, precio) {
-            let mensaje = `Hola 👋, quiero comprar este combo:\n\n🚀 *${nombreCombo}*\n💰 Precio: $${precio.toLocaleString('es-CO')}\n\n🤝 Deseo pagar 50% ahora y 50% al finalizar.`;
-            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
-        }
-
-        // --- 2. LÓGICA DEL CARRITO (Calculadora) ---
+        // --- 1. LÓGICA DE PRECIOS ---
         function calcularTotal(serviciosSeleccionados) {
             let servicios = serviciosSeleccionados.map(s => s.toLowerCase().trim());
-            
-            // YouTube siempre 10k
             let youtubeCount = servicios.filter(s => s.includes('youtube')).length;
-            
-            // Resto para combos (Cualquiera de 7k)
             let serviciosCombo = servicios.filter(s => !s.includes('youtube'));
             let tieneNetflix = serviciosCombo.some(s => s.includes('netflix'));
             let cantidadExtra = serviciosCombo.length;
             if (tieneNetflix) cantidadExtra -= 1;
 
             let precioFinal = 0;
-
             if (tieneNetflix) {
-                // Combos con Netflix
                 if (cantidadExtra === 0) precioFinal = 15000;
                 else if (cantidadExtra === 1) precioFinal = 18000;
                 else if (cantidadExtra === 2) precioFinal = 22000;
                 else if (cantidadExtra === 3) precioFinal = 26000;
                 else if (cantidadExtra >= 4) precioFinal = 30000;
             } else {
-                // Combos sin Netflix
                 if (cantidadExtra === 0) precioFinal = 0;
                 else if (cantidadExtra === 1) precioFinal = 7000;
                 else if (cantidadExtra === 2) precioFinal = 13000;
@@ -423,50 +444,110 @@
                 else if (cantidadExtra === 4) precioFinal = 20000;
                 else if (cantidadExtra > 4) precioFinal = 20000 + ((cantidadExtra-4)*7000);
             }
-            
             return precioFinal + (youtubeCount * 10000);
         }
 
+        // --- 2. FUNCIONES DEL CARRITO ---
         function agregar(nombre) {
             carrito.push(nombre);
-            actualizarUI();
+            actualizarBarra();
         }
 
         function quitar(index) {
             carrito.splice(index, 1);
-            actualizarUI();
+            actualizarBarra();
+            // Si el modal está abierto, actualizamos la lista visualmente
+            if(document.getElementById('modalCheckout').style.display === 'flex' && modoCompra === 'carrito'){
+                renderizarModalCarrito();
+            }
         }
 
-        function actualizarUI() {
+        function actualizarBarra() {
             let total = calcularTotal(carrito);
-            let textoTotal = "$" + total.toLocaleString('es-CO');
-            
-            document.getElementById('totalBarra').innerText = textoTotal;
-            document.getElementById('totalModal').innerText = textoTotal;
+            document.getElementById('totalBarra').innerText = "$" + total.toLocaleString('es-CO');
             document.getElementById('contadorItems').innerText = carrito.length;
+        }
 
-            let htmlLista = "";
+        // --- 3. MODALES Y FLUJO DE COMPRA ---
+
+        // A. Abrir modal para Carrito
+        function abrirModalCarrito() {
+            if(carrito.length === 0) return alert("El carrito está vacío.");
+            modoCompra = 'carrito';
+            document.getElementById('modalTitle').innerText = "Tu Carrito Personalizado";
+            renderizarModalCarrito();
+            document.getElementById('modalCheckout').style.display = 'flex';
+        }
+
+        function renderizarModalCarrito() {
+            let html = "";
             carrito.forEach((item, index) => {
-                htmlLista += `<div style="display:flex; justify-content:space-between; padding:5px 0;">
+                html += `<div style="display:flex; justify-content:space-between; padding:5px 0;">
                     <span>${item}</span>
                     <span style="color:red; cursor:pointer;" onclick="quitar(${index})">x</span>
                 </div>`;
             });
-            document.getElementById('listaItems').innerHTML = htmlLista;
+            document.getElementById('modalBody').innerHTML = html;
+            
+            let total = calcularTotal(carrito);
+            document.getElementById('modalTotal').innerText = "$" + total.toLocaleString('es-CO');
         }
 
-        function enviarPedidoCarrito() {
-            if(carrito.length === 0) return alert("El carrito está vacío.");
-            let msj = "Hola 👋, quiero armar este pedido personalizado:\n\n";
-            carrito.forEach(i => msj += `- ${i}\n`);
-            msj += `\n💰 *Total Calculado: ${document.getElementById('totalModal').innerText}*`;
-            msj += `\n\n🤝 Deseo pagar 50% / 50%.`;
-            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(msj)}`, '_blank');
+        // B. Abrir modal para Compra Directa (Combo)
+        function abrirModalCompraDirecta(nombre, precio) {
+            modoCompra = 'directo';
+            itemDirecto = nombre;
+            precioDirecto = precio;
+
+            document.getElementById('modalTitle').innerText = "Confirmar Combo";
+            document.getElementById('modalBody').innerHTML = `<p style="font-size:1.1rem; text-align:center;">🚀 <strong>${nombre}</strong></p>`;
+            document.getElementById('modalTotal').innerText = "$" + precio.toLocaleString('es-CO');
+            
+            document.getElementById('modalCheckout').style.display = 'flex';
         }
 
-        function abrirCarrito() { document.getElementById('modalCarrito').style.display = 'flex'; }
-        function cerrarCarrito() { document.getElementById('modalCarrito').style.display = 'none'; }
-        window.onclick = function(e) { if(e.target == document.getElementById('modalCarrito')) cerrarCarrito(); }
+        function cerrarModal() {
+            document.getElementById('modalCheckout').style.display = 'none';
+        }
+
+        // C. FINALIZAR COMPRA (ENVÍO A WHATSAPP)
+        function finalizarCompra() {
+            // 1. Obtener método de pago seleccionado
+            let metodoPago = document.querySelector('input[name="metodoPago"]:checked').value;
+            let textoPago = "";
+            
+            if (metodoPago === "50/50") {
+                textoPago = "🤝 Deseo pagar con modalidad 50% / 50%.";
+            } else {
+                textoPago = "💳 Deseo realizar el Pago Completo de inmediato.";
+            }
+
+            let mensaje = "";
+            let totalFinal = "";
+
+            if (modoCompra === 'carrito') {
+                if(carrito.length === 0) return;
+                mensaje = "Hola 👋, quiero pedir mi paquete personalizado:\n\n";
+                carrito.forEach(i => mensaje += `- ${i}\n`);
+                totalFinal = document.getElementById('modalTotal').innerText;
+                mensaje += `\n💰 *Total Calculado: ${totalFinal}*`;
+            
+            } else if (modoCompra === 'directo') {
+                mensaje = `Hola 👋, quiero comprar este combo directo:\n\n🚀 *${itemDirecto}*`;
+                totalFinal = document.getElementById('modalTotal').innerText;
+                mensaje += `\n💰 *Precio: ${totalFinal}*`;
+            }
+
+            // Agregar la preferencia de pago al mensaje
+            mensaje += `\n\n${textoPago}`;
+
+            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
+        }
+
+        // Cerrar al hacer clic fuera
+        window.onclick = function(e) { 
+            if(e.target == document.getElementById('modalCheckout')) cerrarModal(); 
+        }
     </script>
 </body>
 </html>
