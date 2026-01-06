@@ -3,318 +3,468 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataformas Disponibles</title>
-    <p>horarios de 1-pm 8-pm</p>
+    <title>PeliZone - Catálogo Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #141414;
+            --card-bg: #1f1f1f;
+            --accent: #e50914; /* Rojo Netflix */
+            --green: #46d369;  /* Verde Precio */
+            --blue: #007bff;   /* Azul Botón */
+            --text: #ffffff;
+            --gold: #ffd700;
+        }
+
         body {
             margin: 0;
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #5a64ea, #6b75ff);
-            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text);
+            padding-bottom: 120px;
+        }
+
+        /* Banner */
+        .info-banner {
+            background: rgba(70, 211, 105, 0.15);
+            border-bottom: 1px solid var(--green);
+            color: var(--green);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
         }
 
         header {
-            background: rgba(0, 0, 0, 0.2);
             text-align: center;
-            padding: 1em;
-            font-weight: bold;
+            padding: 2rem 1rem;
+            background: linear-gradient(to bottom, #000, transparent);
         }
 
-        /* Contenedor principal */
-        .contenedor-tarjetas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
+        h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
+        .subtitle { color: #aaa; font-size: 1rem; margin-top: 5px; }
+
+        /* Estructura */
+        .container {
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
         }
 
-        /* Tarjeta */
-        .tarjeta {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            padding: 1.5rem;
+        /* Títulos de Sección */
+        .section-header {
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        .section-header h2 { font-size: 1.8rem; margin-bottom: 5px; color: var(--text); }
+        .section-header p { color: #888; font-size: 0.9rem; margin: 0; }
+
+        /* TARJETAS */
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
         }
 
-        .tarjeta:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        .card:hover { transform: translateY(-5px); border-color: #555; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+
+        /* Estilos específicos para combos con Netflix */
+        .netflix-combo { border: 1px solid var(--accent); }
+
+        .card img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain; /* Asegura que el logo se vea completo */
+            margin: 0 auto 10px auto;
         }
 
-        .tarjeta img {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
+        .card h3 { font-size: 1rem; margin: 5px 0; min-height: 40px; display: flex; align-items: center; justify-content: center;}
 
-        .tarjeta h3 {
+        .price-tag {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--green);
             margin: 10px 0;
-            font-size: 1.2em;
-            color: #fff;
         }
 
-        .tarjeta p {
-            font-size: 0.9em;
-            margin: 5px 0;
-        }
+        .duracion { font-size: 0.8rem; color: #888; margin-bottom: 10px; }
 
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 16px;
-            border-radius: 10px;
-            background: #ff6b6b;
-            color: white;
-            text-decoration: none;
+        /* Botones */
+        .btn-add {
+            background: transparent;
+            border: 1px solid var(--green);
+            color: var(--green);
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
             font-weight: bold;
-            transition: background 0.3s ease;
+            transition: 0.2s;
         }
+        .btn-add:hover { background: var(--green); color: #000; }
 
-        .btn:hover {
-            background: #ff3b3b;
+        .btn-buy-now {
+            background: var(--blue);
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
+        .btn-buy-now:hover { background: #0056b3; }
 
-        /* Sección de combos */
-        #planes {
-            background: rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            border-top: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        #planes h2 {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .combo {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            padding: 1.2rem;
-            margin: 1rem auto;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .combo h3 {
+        .combo-badge {
+            background: #333;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
             margin-bottom: 10px;
+            display: inline-block;
         }
 
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.3);
+        /* CARRITO FLOTANTE */
+        .cart-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #222;
+            border: 1px solid #444;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 400px;
+            cursor: pointer;
         }
+
+        /* MODAL */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-content {
+            background: #1f1f1f;
+            width: 90%;
+            max-width: 350px;
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+        }
+
+        .close-btn { position: absolute; right: 15px; top: 10px; font-size: 1.5rem; cursor: pointer; }
+
     </style>
 </head>
 <body>
 
+    <div class="info-banner">
+        🔒 Garantía Total | Paga 50% al pedir y 50% al recibir
+    </div>
+
     <header>
-        <h1>Plataformas Disponibles</h1>
+        <h1>PeliZone</h1>
+        <p class="subtitle">Streaming Premium al Mejor Precio</p>
     </header>
 
-    <!-- Sección de tarjetas -->
-    <section class="contenedor-tarjetas">
-        <!-- YouTube -->
-        <div class="tarjeta">
-            <img src="https://images.icon-icons.com/835/PNG/512/yt_icon-icons.com_66728.png">
+    <div class="section-header">
+        <h2>📱 Armar Paquete Personalizado</h2>
+        <p>Agrega servicios al carrito y crea tu combinación</p>
+    </div>
+    
+    <section class="container">
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube">
             <h3>YouTube Premium</h3>
-            <p>Precio: 10.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20YouTube%20Premium" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+            <div class="price-tag">$10.000</div>
+            <div class="duracion">30 Días • Sin Anuncios</div>
+            <button class="btn-add" onclick="agregar('YouTube Premium')">+ Carrito</button>
         </div>
 
-        <!-- Netflix -->
-        <div class="tarjeta">
+        <div class="card" style="border-color: var(--accent);">
             <img src="https://images.icon-icons.com/2699/PNG/512/netflix_logo_icon_170919.png" alt="Netflix">
             <h3>Netflix</h3>
-            <p>Precio: 15.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20Netflix" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+            <div class="price-tag">$15.000</div>
+            <div class="duracion">30 Días • 4K UHD</div>
+            <button class="btn-add" onclick="agregar('Netflix')">+ Carrito</button>
         </div>
 
-        <div class="tarjeta">
-            <img src="https://images.icon-icons.com/2657/PNG/256/disney_plus_icon_161064.png" alt="Disney+ Estándar ">
-            <h3>Disney+ Estándar </h3>
-            <p>Precio: 6.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20Disney+ Estándar " class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney%2B_logo.svg/1200px-Disney%2B_logo.svg.png" alt="Disney+">
+            <h3>Disney+</h3>
+            <div class="price-tag">$7.000</div>
+            <div class="duracion">30 Días • Premium</div>
+            <button class="btn-add" onclick="agregar('Disney+')">+ Carrito</button>
         </div>
 
-        <!-- Disney -->
-        <div class="tarjeta">
-            <img src="https://images.icon-icons.com/2657/PNG/256/disney_plus_icon_161064.png" alt="Disney+">
-            <h3>Disney Premium + ESPN</h3>
-            <p>Precio: 12.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20Disney%20Premium%20con%20ESPN" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-
-        <!-- HBO Max -->
-        <div class="tarjeta">
-            <img src="https://play-lh.googleusercontent.com/HP5hUJR2u3ipVc6G758om22BTNQhTunxzRI1Rk-yltp85ilb60Ekj46_VYaRL2kiSSA=w240-h480-rw" alt="HBO Max">
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Max_logo.svg/2560px-Max_logo.svg.png" alt="HBO Max">
             <h3>HBO Max</h3>
-            <p>Precio: 7.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20HBO%20Max" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+            <div class="price-tag">$7.000</div>
+            <div class="duracion">30 Días • Series Top</div>
+            <button class="btn-add" onclick="agregar('HBO Max')">+ Carrito</button>
         </div>
 
-        <!-- Paramount -->
-        <div class="tarjeta">
-            <img src="https://play-lh.googleusercontent.com/oi4GE8ulxHp4Y2xVzKu_WAMrgE4Jj4Kbdd7hAWLeoZTsMtC5bYTd2xcYhlvMk69pTFY=w240-h480-rw" alt="Paramount+">
-            <h3>Paramount+</h3>
-            <p>Precio: 6.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20Paramount+" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-
-        <!-- Crunchyroll -->
-        <div class="tarjeta">
-            <img src="https://w7.pngwing.com/pngs/139/210/png-transparent-crunchyroll-social-network-network-connection-communication-interaction-social-network-flat-icon.png">
-            <h3>Crunchyroll Premium</h3>
-            <p>Precio: 7.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20Crunchyroll" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-
-        <!-- Vix -->
-        <div class="tarjeta">
-            <img src="https://i.pinimg.com/1200x/9e/9a/e9/9e9ae9ca207ea166c3d5c4f1ad9ffe1f.jpg" alt="Vix">
-            <h3>Vix+</h3>
-            <p>Precio: 5.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20Vix+" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-
-        <!-- Jellyfin -->
-        <div class="tarjeta">
-            <img src="https://play-lh.googleusercontent.com/FAlWhVMAjAzI6Nxc7bf4KPgjbwA3GT9j2bzeAMnRpdWim_2SXnS9i4zhwasKWIC8PV4=w240-h480-rw" alt="Vix">
-            <h3>Jellyfin+</h3>
-            <p>Precio: 18.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-	    <p>🎬 Contiene más de 3.000 canales, además de una gran selección de películas y series — ¡el catálogo más grande que tenemos en una sola app! 📺🔥 </p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20Jellyfin +" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-
-        <!-- Prime -->
-        <div class="tarjeta">
-            <img src="https://img.icons8.com/?size=256&id=EHtqS186HLz5&format=png" alt="Prime Video">
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Amazon_Prime_Video_logo.svg/1200px-Amazon_Prime_Video_logo.svg.png" alt="Prime Video">
             <h3>Prime Video</h3>
-            <p>Precio: 7.000 COP / pantalla</p>
-            <p>Duración: 30 días</p>
-            <a href="https://wa.me/573022346315?text=Hola%20👋,%20quiero%20la%20pantalla%20de%20Prime%20Video" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+            <div class="price-tag">$7.000</div>
+            <div class="duracion">30 Días • Películas</div>
+            <button class="btn-add" onclick="agregar('Prime Video')">+ Carrito</button>
+        </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Paramount_Plus.svg/1200px-Paramount_Plus.svg.png" alt="Paramount+">
+            <h3>Paramount+</h3>
+            <div class="price-tag">$7.000</div>
+            <div class="duracion">30 Días • Exclusivo</div>
+            <button class="btn-add" onclick="agregar('Paramount+')">+ Carrito</button>
+        </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/ViX_logo_2022.svg/1200px-ViX_logo_2022.svg.png" alt="Vix+">
+            <h3>Vix+</h3>
+            <div class="price-tag">$7.000</div>
+            <div class="duracion">30 Días • Deportes</div>
+            <button class="btn-add" onclick="agregar('Vix+')">+ Carrito</button>
+        </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Crunchyroll_Logo.png/600px-Crunchyroll_Logo.png" alt="Crunchyroll">
+            <h3>Crunchyroll</h3>
+            <div class="price-tag">$7.000</div>
+            <div class="duracion">30 Días • Anime</div>
+            <button class="btn-add" onclick="agregar('Crunchyroll')">+ Carrito</button>
         </div>
     </section>
 
-    <!-- Sección de combos -->
-    <section id="planes">
-        <h2>Combos Especiales</h2>
+    <div class="section-header">
+        <h2>🔥 Combos Populares</h2>
+        <p>Elige tu pack y cómpralo al instante</p>
+    </div>
 
-        <div class="combo">
-            <h3>Prime Video + HBO Max</h3>
-            <p>Precio: 13.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Prime%20y%20HBO%20Max" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+    <section class="container">
+
+        <div class="card">
+            <span class="combo-badge">Ahorro</span>
+            <h3>Prime + Max</h3>
+            <div class="price-tag">$13.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Prime + Max', 13000)">🛒 Comprar</button>
+        </div>
+        <div class="card">
+            <span class="combo-badge">Ahorro</span>
+            <h3>Prime + Disney+</h3>
+            <div class="price-tag">$13.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Prime + Disney', 13000)">🛒 Comprar</button>
+        </div>
+        <div class="card">
+            <span class="combo-badge">Ahorro</span>
+            <h3>Max + Disney+</h3>
+            <div class="price-tag">$13.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Max + Disney', 13000)">🛒 Comprar</button>
         </div>
 
-        <div class="combo">
-            <h3>Prime + Disney</h3>
-            <p>Precio: 13.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Prime%20y%20Disney" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-
-        <div class="combo">
-            <h3>Max + Disney</h3>
-            <p>Precio: 13.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Max%20y%20Disney" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-
-        <div class="combo">
+        <div class="card" style="border-color: var(--gold);">
+            <span class="combo-badge" style="background:var(--gold); color:#000;">Recomendado</span>
             <h3>Prime + Max + Disney</h3>
-            <p>Precio: 17.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Prime,%20Max%20y%20Disney" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+            <div class="price-tag">$17.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Prime + Max + Disney', 17000)">🛒 Comprar</button>
         </div>
 
-        <div class="combo">
-            <h3>Netflix + Prime + Max</h3>
-            <p>Precio: 22.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Netflix,%20Prime%20y%20Max" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-
-        <div class="combo">
-            <h3>Prime + Max + Disney + Vix</h3>
-            <p>Precio: 20.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Prime,%20Max,%20Disney%20y%20Vix" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-
-        <div class="combo">
+        <div class="card netflix-combo">
+            <span class="combo-badge" style="background:var(--accent);">Con Netflix</span>
             <h3>Netflix + Prime</h3>
-            <p>Precio: 18.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Netflix%20y%20Prime" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+            <div class="price-tag">$18.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Netflix + Prime', 18000)">🛒 Comprar</button>
         </div>
-
-        <div class="combo">
+        <div class="card netflix-combo">
+            <span class="combo-badge" style="background:var(--accent);">Con Netflix</span>
             <h3>Netflix + Max</h3>
-            <p>Precio: 18.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Netflix%20y%20Max" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+            <div class="price-tag">$18.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Netflix + Max', 18000)">🛒 Comprar</button>
+        </div>
+        <div class="card netflix-combo">
+            <span class="combo-badge" style="background:var(--accent);">Con Netflix</span>
+            <h3>Netflix + Disney+</h3>
+            <div class="price-tag">$18.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo: Netflix + Disney', 18000)">🛒 Comprar</button>
         </div>
 
-        <div class="combo">
-            <h3>Netflix + Disney</h3>
-            <p>Precio: 18.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Netflix%20y%20Disney" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+        <div class="card" style="border-color: var(--gold);">
+            <span class="combo-badge" style="background:var(--gold); color:#000;">Pack x4</span>
+            <h3>Prime+Max+Dis+Vix</h3>
+            <div class="price-tag">$20.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo 4 Apps: Prime+Max+Dis+Vix', 20000)">🛒 Comprar</button>
         </div>
 
-        <div class="combo">
-            <h3>Netflix + Max + Disney</h3>
-            <p>Precio: 22.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Netflix,%20Max%20y%20Disney" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+        <div class="card netflix-combo">
+            <span class="combo-badge" style="background:var(--accent);">Triple Net</span>
+            <h3>Net + Prime + Max</h3>
+            <div class="price-tag">$22.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo Triple: Net + Prime + Max', 22000)">🛒 Comprar</button>
+        </div>
+        <div class="card netflix-combo">
+            <span class="combo-badge" style="background:var(--accent);">Triple Net</span>
+            <h3>Net + Max + Disney</h3>
+            <div class="price-tag">$22.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo Triple: Net + Max + Disney', 22000)">🛒 Comprar</button>
+        </div>
+        <div class="card netflix-combo">
+            <span class="combo-badge" style="background:var(--accent);">Triple Net</span>
+            <h3>Net + Prime + Disney</h3>
+            <div class="price-tag">$22.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo Triple: Net + Prime + Disney', 22000)">🛒 Comprar</button>
         </div>
 
-        <div class="combo">
-            <h3>Netflix + Prime + Disney</h3>
-            <p>Precio: 22.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Netflix,%20Prime%20y%20Disney" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
+        <div class="card netflix-combo" style="grid-column: 1 / -1; background: linear-gradient(145deg, #300000, #1f1f1f);">
+            <span class="combo-badge" style="background:#fff; color:#000;">👑 EL SUPREMO</span>
+            <h3>Netflix + Prime + Max + Disney+</h3>
+            <div class="price-tag">$26.000</div>
+            <button class="btn-buy-now" onclick="comprarDirecto('Combo SUPREMO: Net+Prime+Max+Dis', 26000)">🛒 Comprar Ahora</button>
         </div>
 
-        <div class="combo">
-            <h3>Netflix + Prime + Max + Disney</h3>
-            <p>Precio: 26.000 COP</p>
-            <a href="https://wa.me/573022346315?text=Hola,%20quiero%20el%20combo%20Netflix,%20Prime,%20Max%20y%20Disney" class="btn">🛒 comprar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
-        <div class="combo">
-            <h3>🎬 ¡Arma tu combo a tu gusto! 📦</h3>
-            <p>Elige tus plataformas favoritas y te damos el mejor precio 💥</p>
-            <a href="https://wa.me/573022346315?text=🎬%20¡Hola!%20Quiero%20armar%20mi%20combo%20a%20mi%20gusto%20con%20mis%20plataformas%20favoritas%20📦" class="btn">🛒 Llevar</a>
-            <p>💳 Puedes pagar una parte primero y, una vez tengas la cuenta instalada y funcionando, cancelar el resto ✅</p>
-        </div>
+    </section>
 
-    <footer>
-        <p>💬 ¡Actualizamos precios! Consigue tu plataforma favorita con seguridad y soporte garantizado.</p>
-    </footer>
+    <div class="cart-bar" onclick="abrirCarrito()">
+        <div>
+            <span style="font-size:0.7rem; color:#aaa;">Armado Personalizado:</span>
+            <div id="totalBarra" style="font-weight:bold; color:var(--green);">$0</div>
+        </div>
+        <div style="background:var(--green); color:#000; padding:5px 15px; border-radius:20px; font-weight:bold; font-size:0.9rem;">
+            Ver Carrito (<span id="contadorItems">0</span>)
+        </div>
+    </div>
+
+    <div class="cart-modal" id="modalCarrito">
+        <div class="cart-content">
+            <span class="close-btn" onclick="cerrarCarrito()">&times;</span>
+            <h3 style="text-align:center;">Tu Pedido Personalizado</h3>
+            <div id="listaItems" style="margin:15px 0; max-height:200px; overflow-y:auto; border-bottom:1px solid #333;"></div>
+            
+            <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:1.2rem; margin-bottom:15px;">
+                <span>Total:</span>
+                <span id="totalModal" style="color:var(--green);">$0</span>
+            </div>
+            
+            <p style="text-align:center; font-size:0.8rem; color:#aaa;">*El sistema ha calculado el mejor precio para ti.</p>
+
+            <button class="btn-buy-now" onclick="enviarPedidoCarrito()" style="background:#25D366;">📲 Enviar por WhatsApp</button>
+        </div>
+    </div>
+
+    <script>
+        const telefono = "573022346315";
+        let carrito = [];
+
+        // --- 1. COMPRA DIRECTA DE COMBOS ---
+        function comprarDirecto(nombreCombo, precio) {
+            let mensaje = `Hola 👋, quiero comprar este combo:\n\n🚀 *${nombreCombo}*\n💰 Precio: $${precio.toLocaleString('es-CO')}\n\n🤝 Deseo pagar 50% ahora y 50% al finalizar.`;
+            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
+        }
+
+        // --- 2. LÓGICA DEL CARRITO (Calculadora) ---
+        function calcularTotal(serviciosSeleccionados) {
+            let servicios = serviciosSeleccionados.map(s => s.toLowerCase().trim());
+            
+            // YouTube siempre 10k
+            let youtubeCount = servicios.filter(s => s.includes('youtube')).length;
+            
+            // Resto para combos (Cualquiera de 7k)
+            let serviciosCombo = servicios.filter(s => !s.includes('youtube'));
+            let tieneNetflix = serviciosCombo.some(s => s.includes('netflix'));
+            let cantidadExtra = serviciosCombo.length;
+            if (tieneNetflix) cantidadExtra -= 1;
+
+            let precioFinal = 0;
+
+            if (tieneNetflix) {
+                // Combos con Netflix
+                if (cantidadExtra === 0) precioFinal = 15000;
+                else if (cantidadExtra === 1) precioFinal = 18000;
+                else if (cantidadExtra === 2) precioFinal = 22000;
+                else if (cantidadExtra === 3) precioFinal = 26000;
+                else if (cantidadExtra >= 4) precioFinal = 30000;
+            } else {
+                // Combos sin Netflix
+                if (cantidadExtra === 0) precioFinal = 0;
+                else if (cantidadExtra === 1) precioFinal = 7000;
+                else if (cantidadExtra === 2) precioFinal = 13000;
+                else if (cantidadExtra === 3) precioFinal = 17000;
+                else if (cantidadExtra === 4) precioFinal = 20000;
+                else if (cantidadExtra > 4) precioFinal = 20000 + ((cantidadExtra-4)*7000);
+            }
+            
+            return precioFinal + (youtubeCount * 10000);
+        }
+
+        function agregar(nombre) {
+            carrito.push(nombre);
+            actualizarUI();
+        }
+
+        function quitar(index) {
+            carrito.splice(index, 1);
+            actualizarUI();
+        }
+
+        function actualizarUI() {
+            let total = calcularTotal(carrito);
+            let textoTotal = "$" + total.toLocaleString('es-CO');
+            
+            document.getElementById('totalBarra').innerText = textoTotal;
+            document.getElementById('totalModal').innerText = textoTotal;
+            document.getElementById('contadorItems').innerText = carrito.length;
+
+            let htmlLista = "";
+            carrito.forEach((item, index) => {
+                htmlLista += `<div style="display:flex; justify-content:space-between; padding:5px 0;">
+                    <span>${item}</span>
+                    <span style="color:red; cursor:pointer;" onclick="quitar(${index})">x</span>
+                </div>`;
+            });
+            document.getElementById('listaItems').innerHTML = htmlLista;
+        }
+
+        function enviarPedidoCarrito() {
+            if(carrito.length === 0) return alert("El carrito está vacío.");
+            let msj = "Hola 👋, quiero armar este pedido personalizado:\n\n";
+            carrito.forEach(i => msj += `- ${i}\n`);
+            msj += `\n💰 *Total Calculado: ${document.getElementById('totalModal').innerText}*`;
+            msj += `\n\n🤝 Deseo pagar 50% / 50%.`;
+            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(msj)}`, '_blank');
+        }
+
+        function abrirCarrito() { document.getElementById('modalCarrito').style.display = 'flex'; }
+        function cerrarCarrito() { document.getElementById('modalCarrito').style.display = 'none'; }
+        window.onclick = function(e) { if(e.target == document.getElementById('modalCarrito')) cerrarCarrito(); }
+    </script>
 </body>
 </html>
